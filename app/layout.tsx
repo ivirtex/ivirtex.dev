@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={inter.className + " bg-neutral-950 text-white"}>
         <Toaster containerStyle={{ top: "10px" }} />
         {children}
+        <Analytics />
       </body>
     </html>
   );
