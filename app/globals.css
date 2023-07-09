@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer components {
+  .link {
+    @apply text-sky-500;
+    @apply font-bold;
+    @apply hover:text-pink-500;
+    @apply transition-colors;
+  }
+
   .bg-noisy-gradient {
     background-image: url("/noise.webp"),
       radial-gradient(circle at center, white, var(--page-background));

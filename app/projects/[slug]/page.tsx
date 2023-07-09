@@ -6,8 +6,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaArrowLeft, FaGithub } from "react-icons/fa6";
 
-export const revalidate = 60;
-
 function ProjectNavigation(project: Project) {
   const className = "hover:text-neutral-300 duration-150 transition";
 

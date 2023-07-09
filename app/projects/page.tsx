@@ -5,6 +5,8 @@ import Nav from "../components/nav";
 import ProjectCard from "../components/project_card";
 import Title from "../components/title";
 
+export const revalidate = 60;
+
 export default function Projects() {
   // sort alphabetically
   const projects = allProjects.sort((a, b) => a.owner.localeCompare(b.owner));

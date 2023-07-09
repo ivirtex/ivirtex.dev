@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Footer from "../components/footer";
 import Nav from "../components/nav";
 import Title from "../components/title";
@@ -11,28 +13,35 @@ export default function About() {
           <Title>About me</Title>
           <div className="space-y-4 text-lg">
             <p>
-              As you probably saw on the main page, my name is Hubert, but
-              people on the Internet call me ivirtex.
+              Hi! My name is <b>Hubert</b>.
             </p>
             <p>
               I am a software developer from Poland. I mostly work on mobile
-              apps using SwiftUI and Flutter, but I am also interested in
-              reverse engineering, 3D graphics and UI, UX design. I enjoy
-              experimenting with new frameworks and libraries to see how they
-              work and to determine their pros and cons (e.g. this website is
-              built using Next.js).
+              apps using Flutter, but I am also interested in reverse
+              engineering, 3D graphics and UI, UX design. I enjoy experimenting
+              with new frameworks and libraries to see how they work and to
+              determine their pros and cons (e.g. this website is built using
+              Next.js).
             </p>
             <p>
-              I love open-source software and I am always looking for new
-              projects to contribute to. In fact, I am an actual contributor to
-              the official Flutter repository, where I helped with fidelity
-              issues in one of the core packages (Cupertino) and I also
-              committed to the Flutter&apos;s platform testing tools. Besides
-              Flutter I also contributed to many other, smaller open-source
-              projects.
+              I love open-source software and I always look to contribute to
+              software I use. In fact, I&apos;ve contributed several times to
+              the Flutter framework, where I helped with fidelity issues in one
+              of the core packages (see{" "}
+              <Link href="/projects" className="link">
+                projects
+              </Link>{" "}
+              for more info).
             </p>
             <p>
-              Feel free to reach out to me on /contact and check out my GitHub
+              Feel free to reach out to me on{" "}
+              <Link href="/contact" className="link">
+                contact
+              </Link>{" "}
+              page and check out my{" "}
+              <a href="https://github.com/ivirtex" className="link">
+                GitHub
+              </a>{" "}
               profile to see what I am working on!
             </p>
           </div>
