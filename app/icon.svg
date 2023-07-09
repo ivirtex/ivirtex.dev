@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="316" height="341"><svg width="316" height="341" viewBox="0 0 316 341" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_0_1)">
+<circle cx="32.5" cy="32.5" r="32.5" fill="black"></circle>
+<path d="M33 128L159 308" stroke="black" stroke-width="65" stroke-linecap="round"></path>
+<path d="M283 128L159 308" stroke="black" stroke-width="65" stroke-linecap="round"></path>
+<g style="mix-blend-mode:color-dodge">
+<path d="M33 128L33 308" stroke="black" stroke-width="65" stroke-linecap="round"></path>
+</g>
+</g>
+<defs>
+<clipPath id="SvgjsClipPath1000">
+<rect width="316" height="341" fill="white"></rect>
+</clipPath>
+</defs>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: invert(100%); } }
+</style></svg>

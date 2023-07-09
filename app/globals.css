@@ -2,26 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+  .bg-noisy-gradient {
+    background-image: url("/noise.webp"),
+      radial-gradient(circle at center, white, var(--page-background));
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .dotted-horizontal-line:after {
+    animation: horizontalSlideIn 1s ease-in-out forwards;
+    content: "";
+    position: absolute;
+    height: var(--line-width);
+    left: calc(var(--line-offset) / 2 * -1);
+    background: linear-gradient(
+      to right,
+      var(--line-color),
+      var(--line-color) 50%,
+      transparent 0,
+      transparent
+    );
+    background-size: var(--line-gap) var(--line-width);
+    mask: linear-gradient(
+        to left,
+        var(--page-background) var(--horizontal-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(
+        to right,
+        var(--page-background) var(--horizontal-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(#000, #000);
+    -webkit-mask: linear-gradient(
+        to left,
+        var(--page-background) var(--horizontal-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(
+        to right,
+        var(--page-background) var(--horizontal-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(#000, #000);
+    -webkit-mask-composite: destination-in;
+    mask-composite: exclude;
+  }
+
+  .dotted-vertical-line:after {
+    animation: verticalSlideIn 1s ease-in-out forwards;
+    content: "";
+    position: absolute;
+    width: var(--line-width);
+    top: calc(var(--line-offset) / 2 * -1);
+    background: linear-gradient(
+      to bottom,
+      var(--line-color),
+      var(--line-color) 50%,
+      transparent 0,
+      transparent
+    );
+    background-size: var(--line-width) var(--line-gap);
+    mask: linear-gradient(
+        to bottom,
+        var(--page-background) var(--vertical-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(
+        to top,
+        var(--page-background) var(--vertical-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(#000, #000);
+    -webkit-mask: linear-gradient(
+        to top,
+        var(--page-background) var(--vertical-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(
+        to bottom,
+        var(--page-background) var(--vertical-line-fade-stop),
+        transparent
+      ),
+      linear-gradient(#000, #000);
+    -webkit-mask-composite: destination-in;
+    mask-composite: exclude;
+  }
+
+  .animate-svg {
+    animation: svgPathDrawIn 1s ease-in-out forwards;
+    stroke: white;
+  }
+
+  .animate-svg:hover {
+    animation: svgPathDrawOut 1s ease-in-out forwards;
+    stroke: white;
+  }
+
+  @keyframes horizontalSlideIn {
+    from {
+      opacity: 1;
+      width: 0%;
+    }
+    to {
+      opacity: 0.5;
+      width: 100%;
+    }
+  }
+
+  @keyframes verticalSlideIn {
+    from {
+      opacity: 1;
+      height: 0%;
+    }
+    to {
+      opacity: 0.5;
+      height: 100%;
+    }
+  }
+
+  @keyframes svgPathDrawOut {
+    0% {
+      stroke-dasharray: 0 100%;
+    }
+    50% {
+      fill: transparent;
+    }
+    100% {
+      stroke-dasharray: 100% 0;
+      fill: transparent;
+    }
+  }
+
+  @keyframes svgPathDrawIn {
+    from {
+      stroke-dasharray: 100% 0;
+      fill: transparent;
+    }
+    to {
+      stroke-dasharray: 0 100%;
+      fill: white;
+    }
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+:root {
+  --selection-bg-rgb: 255, 255, 255;
+  --selection-fg-rgb: 0, 0, 0;
+
+  --line-color: #777777;
+  --line-width: 1px;
+  --line-gap: 5px;
+  --line-offset: 30px;
+  --line-animation-delay: 0.15s;
+  --horizontal-line-fade-stop: 80%;
+  --vertical-line-fade-stop: 50%;
+  --page-background: theme("colors.neutral.950");
+}
+
+::selection {
+  background: rgb(var(--selection-bg-rgb));
+  color: rgb(var(--selection-fg-rgb));
+}
+
+::-moz-selection {
+  background: rgb(var(--selection-bg-rgb));
+  color: rgb(var(--selection-fg-rgb));
 }
