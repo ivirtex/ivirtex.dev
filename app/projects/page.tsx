@@ -18,7 +18,7 @@ export default function Projects() {
     <div className="flex min-h-screen flex-col">
       <Nav />
       <div className="bg-noisy-gradient absolute w-full h-full opacity-10 mix-blend-overlay pointer-events-none" />
-      <main className="flex-grow">
+      <main className="grow">
         <div className="mx-auto flex max-w-5xl flex-col px-8">
           <Title>Projects</Title>
           <p className="mb-3 sm:text-lg text-neutral-300">
