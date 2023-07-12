@@ -3,7 +3,7 @@ import Logo from "./components/logo";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden">
       <div className="bg-noisy-gradient absolute w-full h-full opacity-60 mix-blend-overlay pointer-events-none" />
       <main className="flex px-16">
         <div className="dotted-vertical-line" />
