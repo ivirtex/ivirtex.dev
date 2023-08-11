@@ -72,7 +72,7 @@ export default function Nav() {
         </nav>
       </header>
       {isOpen && (
-        <div className="min-w-full min-h-screen top-16 z-50 left-0 right-0 bottom-0 bg-neutral-950/90 backdrop-blur-md absolute backdrop-saturate-150">
+        <div className="min-w-full min-h-screen top-16 z-50 left-0 right-0 bg-neutral-950/90 backdrop-blur-md absolute backdrop-saturate-150">
           <div className="flex flex-col p-8 text-2xl">
             <div className="flex flex-col space-y-4">
               {navigation.map((nav) => (
