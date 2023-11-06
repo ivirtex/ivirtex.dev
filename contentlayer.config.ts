@@ -1,5 +1,6 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import dart from "highlight.js/lib/languages/dart";
+import { Octokit } from "octokit";
 import highlight from "rehype-highlight";
 import rehypeImgSize from "rehype-img-size";
 import remarkGfm from "remark-gfm";

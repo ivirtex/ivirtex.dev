@@ -4,6 +4,7 @@ import {
   BiLogoTypescript,
 } from "react-icons/bi";
 import { DiReact } from "react-icons/di";
+import { FaRust } from "react-icons/fa6";
 import { SiCplusplus, SiDart, SiNextdotjs } from "react-icons/si";
 
 const getIconFromTag = (name: string) => {
@@ -22,6 +23,9 @@ const getIconFromTag = (name: string) => {
       return <BiLogoTypescript size={size} />;
     case "JavaScript":
       return <BiLogoJavascript size={size} />;
+    case "Actix Web":
+    case "Rust":
+      return <FaRust size={size} />;
     case "C":
       return <SiCplusplus size={size} />;
   }
@@ -38,9 +42,8 @@ export default function Tag({ tag }: { tag: string }) {
         </div>
       )}
       <div
-        className={`flex items-center rounded-lg border border-neutral-600 py-1 ${
-          iconNode && "rounded-l-none"
-        }`}
+        className={`flex items-center rounded-lg border border-neutral-600 py-1 ${iconNode && "rounded-l-none"
+          }`}
       >
         <div className="px-2">{tag}</div>
       </div>
