@@ -10,6 +10,7 @@ import { Suspense } from "react";
 import { SerializeOptions } from "next-mdx-remote/dist/types";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
+import { CgSpinner } from "react-icons/cg";
 
 async function fetchReadme(project: Project) {
   const octokit = new Octokit({
@@ -69,7 +70,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
         <div className="flex grow flex-col justify-between bg-neutral-100 px-4 selection:bg-black selection:text-white">
           <div className="max-w-2xl py-4 sm:py-8 sm:mx-auto">
             <div className="prose prose-sm sm:prose-base prose-code:rounded-lg prose-img:inline-block prose-img:m-0 prose-headings:break-words">
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<CgSpinner className="animate-spin ml-4" size={24} />}>
                 <MDXRemote source={readme} options={mdxOptions} components={{ img: (props) => <img {...props} /> }} />
               </Suspense>
             </div>

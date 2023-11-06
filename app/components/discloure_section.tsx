@@ -17,11 +17,10 @@ export default function DisclosureSection({
           <Disclosure.Button className="flex text-sm sm:text-base items-center mt-2 w-full justify-between rounded-lg bg-purple-200 transition px-2 py-1 sm:py-1.5 font-medium text-purple-900 hover:bg-purple-200">
             <span>{title}</span>
             <FiChevronUp
-              className={`${
-                open
+              className={`${open
                   ? "rotate-180 transform transition"
                   : "rotate-0 transform transition"
-              } text-purple-500`}
+                } text-purple-500`}
               size={24}
             />
           </Disclosure.Button>

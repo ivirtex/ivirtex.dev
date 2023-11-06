@@ -14,9 +14,8 @@ export default function ProjectCard(project: Project) {
 
   const card = (
     <Card
-      className={`border border-neutral-950 transition mb-3 ${
-        project.author && "hover:border-neutral-600 hover:bg-neutral-800"
-      }`}
+      className={`border border-neutral-950 transition mb-3 ${project.author && "hover:border-neutral-600 hover:bg-neutral-800"
+        }`}
     >
       <div className="flex flex-col">
         <div className="mb-2 text-xl sm:text-2xl font-extrabold break-words flex justify-between items-center">

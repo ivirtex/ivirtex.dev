@@ -49,9 +49,8 @@ export default function Nav() {
               <Link
                 href={nav.href}
                 key={nav.name}
-                className={`${className} ${
-                  path == nav.href ? "text-neutral-300" : "text-neutral-500"
-                }`}
+                className={`${className} ${path == nav.href ? "text-neutral-300" : "text-neutral-500"
+                  }`}
               >
                 {nav.name}
               </Link>
@@ -79,9 +78,8 @@ export default function Nav() {
                 <Link
                   href={nav.href}
                   key={nav.name}
-                  className={`${className} ${
-                    path == nav.href ? "text-neutral-300" : "text-neutral-500"
-                  }`}
+                  className={`${className} ${path == nav.href ? "text-neutral-300" : "text-neutral-500"
+                    }`}
                 >
                   {nav.name}
                 </Link>
