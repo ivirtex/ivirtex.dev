@@ -50,6 +50,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       format: "md",
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+        // @ts-ignore
         [rehypeHighlight, { languages: { dart } }],
       ],
     }
