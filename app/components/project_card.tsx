@@ -18,7 +18,7 @@ export default function ProjectCard(project: Project) {
         }`}
     >
       <div className="flex flex-col">
-        <div className="mb-2 text-xl sm:text-2xl font-extrabold break-words flex justify-between items-center">
+        <div className="mb-2 text-xl sm:text-2xl font-extrabold break-words flex justify-between items-center font-mono">
           {project.author ? (
             <span>{project.name}</span>
           ) : (

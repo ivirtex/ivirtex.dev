@@ -27,7 +27,7 @@ export default async function ProjectStars({ project }: { project: Project }) {
 
   return (
     starsStr && (
-      <div className="text-base flex items-center bg-neutral-800 px-1.5 py-1 rounded-lg ml-4">
+      <div className="text-base flex items-center bg-neutral-800 px-1.5 py-1 rounded-lg ml-4 font-mono">
         <span>{starsStr}</span>
         <PiStarFill className="ml-1" size={16} />
       </div>
