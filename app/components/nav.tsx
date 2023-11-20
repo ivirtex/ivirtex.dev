@@ -2,26 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 
 import Logo from "./logo";
 
-type Navigation = {
+export type Navigation = {
   name: string;
   href: string;
   current: boolean;
+  icon?: React.ReactNode;
 };
-
-const navigation: Navigation[] = [
-  { name: "projects", href: "/projects", current: false },
-  { name: "about", href: "/about", current: false },
-  { name: "contact", href: "/contact", current: false },
-];
 
 const className = "hover:text-neutral-300 duration-150 transition";
 
-export default function Nav() {
+export default function Nav({ paths }: { paths: Navigation[] }) {
   let [isOpen, setIsOpen] = useState(false);
   let path = usePathname();
 
@@ -45,14 +40,20 @@ export default function Nav() {
             <Logo className="animate-svg h-7 w-auto fill-white" />
           </Link>
           <div className="space-x-4 hidden sm:block ml-auto">
-            {navigation.map((nav) => (
+            {paths.map((nav) => (
               <Link
                 href={nav.href}
                 key={nav.name}
                 className={`${className} ${path == nav.href ? "text-neutral-300" : "text-neutral-500"
                   }`}
               >
-                {nav.name}
+                {nav.icon ? (
+                  <div className={`${className} text-white`}>
+                    {nav.icon}
+                  </div>
+                ) : (
+                  nav.name
+                )}
               </Link>
             ))}
           </div>
@@ -74,10 +75,11 @@ export default function Nav() {
         <div className="min-w-full min-h-screen top-16 z-50 left-0 right-0 bg-neutral-950/90 backdrop-blur-md fixed backdrop-saturate-150">
           <div className="flex flex-col p-8 text-2xl">
             <div className="flex flex-col space-y-4">
-              {navigation.map((nav) => (
+              {paths.map((nav) => (
                 <Link
                   href={nav.href}
                   key={nav.name}
+                  onClick={() => setIsOpen(false)}
                   className={`${className} ${path == nav.href ? "text-neutral-300" : "text-neutral-500"
                     }`}
                 >

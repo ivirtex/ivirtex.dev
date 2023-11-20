@@ -14,8 +14,13 @@ export const Project = defineDocumentType(() => ({
     name: { type: "string", required: true },
     description: { type: "string", required: true },
     tags: { type: "list", of: { type: "string" }, required: true },
-    landingPageUrl: { type: "string", required: false },
     repositoryUrl: { type: "string", required: false },
+    privacyPolicyUrl: { type: "string", required: false },
+    termsOfServiceUrl: { type: "string", required: false },
+    appStoreUrl: { type: "string", required: false },
+    playStoreUrl: { type: "string", required: false },
+    iconUrl: { type: "string", required: false },
+    landingPage: { type: "boolean", required: false },
   },
   computedFields: {
     url: {

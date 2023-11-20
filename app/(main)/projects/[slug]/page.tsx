@@ -1,5 +1,4 @@
 import Footer from "@/app/components/footer";
-import ProjectNavigation from "@/app/components/project_navigation";
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { Project, allProjects } from "contentlayer/generated";
 import "highlight.js/styles/github-dark.css";
@@ -11,6 +10,10 @@ import { SerializeOptions } from "next-mdx-remote/dist/types";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import { CgSpinner } from "react-icons/cg";
+import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
+import Nav, { Navigation } from "@/app/components/nav";
+import { FaGithub } from "react-icons/fa6";
 
 async function fetchReadme(project: Project) {
   const octokit = new Octokit({
@@ -25,14 +28,13 @@ async function fetchReadme(project: Project) {
   })
 
   return Buffer.from(readme, "base64").toString("utf8");
-
 }
 
-
-export const generateStaticParams = async () =>
-  allProjects.map((project) => ({
+export async function generateStaticParams() {
+  return allProjects.map((project) => ({
     params: { slug: project._raw.flattenedPath },
   }));
+}
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const project = allProjects.find(
@@ -56,13 +58,28 @@ export default async function ProjectPage({ params }: { params: { slug: string }
     }
   }
 
+  const navigation: Navigation[] = [
+    { name: "Repository", href: project.repositoryUrl!, current: false, icon: <FaGithub size={26} /> },
+  ];
+
   return (
     <div className="flex min-h-screen flex-col">
-      <ProjectNavigation project={project} />
+      <Nav paths={navigation} />
+
       <main className="flex flex-grow flex-col">
         <div className="mx-auto flex max-w-4xl flex-col items-center space-y-8 px-4 sm:px-8 pb-16 ">
-          <div className="text-3xl font-extrabold sm:text-5xl break-words">
+          <div className="text-3xl font-extrabold sm:text-5xl break-words flex items-center">
             {project.name}
+            {project.landingPage && (
+              <Link
+                href={`/${project._raw.flattenedPath}`}
+                className="ml-4 text-neutral-300 hover:text-neutral-400 transition duration-150"
+              >
+                <FiExternalLink size={24} />
+              </Link>
+            )}
+
+
           </div>
           <div className="text-center text-neutral-300 sm:text-xl">
             {project.description}
